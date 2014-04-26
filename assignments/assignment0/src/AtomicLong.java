@@ -1,7 +1,6 @@
 // Import the necessary Java synchronization and scheduling classes.
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.concurrent.locks.Lock;
 
 /**
  * @class AtomicLong
@@ -35,7 +34,7 @@ class AtomicLong
     /**
      * @brief Gets the current value.
      * 
-     * @returns The current value
+     * @return The current value
      */
     public long get()
     {
@@ -47,7 +46,7 @@ class AtomicLong
     /**
      * @brief Atomically decrements by one the current value
      *
-     * @returns the updated value
+     * @return the updated value
      */
     public long decrementAndGet()
     {
@@ -59,7 +58,7 @@ class AtomicLong
     /**
      * @brief Atomically increments by one the current value
      *
-     * @returns the previous value
+     * @return the previous value
      */
     public long getAndIncrement()
     {
@@ -71,7 +70,7 @@ class AtomicLong
     /**
      * @brief Atomically decrements by one the current value
      *
-     * @returns the previous value
+     * @return the previous value
      */
     public long getAndDecrement()
     {
@@ -83,7 +82,7 @@ class AtomicLong
     /**
      * @brief Atomically increments by one the current value
      *
-     * @returns the updated value
+     * @return the updated value
      */
     public long incrementAndGet()
     {
