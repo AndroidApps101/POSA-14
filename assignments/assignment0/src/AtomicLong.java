@@ -4,91 +4,119 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @class AtomicLong
- *
  * @brief This class implements a subset of the
- *        java.util.concurrent.atomic.AtomicLong class using a
- *        ReentrantReadWriteLock to illustrate how they work.
+ * java.util.concurrent.atomic.AtomicLong class using a
+ * ReentrantReadWriteLock to illustrate how they work.
  */
-class AtomicLong
-{
+public class AtomicLong {
     /**
      * The value that's manipulated atomically via the methods.
      */
     private long mValue;
-    
+
     /**
      * The ReentrantReadWriteLock used to serialize access to mValue.
      */
-    // TODO - replace the null with the appropriate initialization:
-    private ReentrantReadWriteLock mRWLock = null;
+    private ReentrantReadWriteLock mRWLock = new ReentrantReadWriteLock();
 
     /**
      * Creates a new AtomicLong with the given initial value.
      */
-    public AtomicLong(long initialValue)
-    {
-        long value = 0;
-        // TODO - you fill in here
+    public AtomicLong(long initialValue) {
+        mValue = initialValue;
     }
 
     /**
-     * @brief Gets the current value.
-     * 
      * @return The current value
+     * @brief Gets the current value.
      */
-    public long get()
-    {
+    public long get() {
         long value = 0;
-        // TODO - you fill in here, using a readLock()
+
+        mRWLock.readLock().lock();
+
+        try {
+            value = mValue;
+        } finally {
+            mRWLock.readLock().unlock();
+        }
+
         return value;
     }
 
     /**
-     * @brief Atomically decrements by one the current value
-     *
      * @return the updated value
-     */
-    public long decrementAndGet()
-    {
-        long value = 0;
-        // TODO - you fill in here, using a writeLock()
-        return value;
-    }
-
-    /**
-     * @brief Atomically increments by one the current value
-     *
-     * @return the previous value
-     */
-    public long getAndIncrement()
-    {
-        long value = 0;
-        // TODO - you fill in here, using a writeLock()
-        return value;
-    }
-
-    /**
      * @brief Atomically decrements by one the current value
-     *
-     * @return the previous value
      */
-    public long getAndDecrement()
-    {
+    public long decrementAndGet() {
         long value = 0;
-        // TODO - you fill in here, using a writeLock()
+
+        mRWLock.writeLock().lock();
+
+        try {
+            mValue--;
+            value = mValue;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
+
         return value;
     }
 
     /**
+     * @return the previous value
      * @brief Atomically increments by one the current value
-     *
-     * @return the updated value
      */
-    public long incrementAndGet()
-    {
+    public long getAndIncrement() {
         long value = 0;
-        // TODO - you fill in here, using a writeLock()
+
+        mRWLock.writeLock().lock();
+
+        try {
+            value = mValue;
+            mValue++;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
+
+        return value;
+    }
+
+    /**
+     * @return the previous value
+     * @brief Atomically decrements by one the current value
+     */
+    public long getAndDecrement() {
+        long value = 0;
+
+        mRWLock.writeLock().lock();
+
+        try {
+            value = mValue;
+            mValue--;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
+
+        return value;
+    }
+
+    /**
+     * @return the updated value
+     * @brief Atomically increments by one the current value
+     */
+    public long incrementAndGet() {
+        long value = 0;
+
+        mRWLock.writeLock().lock();
+
+        try {
+            mValue++;
+            value = mValue;
+        } finally {
+            mRWLock.writeLock().unlock();
+        }
+
         return value;
     }
 }
-
