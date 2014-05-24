@@ -6,13 +6,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @class SimpleAtomicLong
- *
  * @brief This class implements a subset of the
- *        java.util.concurrent.atomic.SimpleAtomicLong class using a
- *        ReentrantReadWriteLock to illustrate how they work.
+ * java.util.concurrent.atomic.SimpleAtomicLong class using a
+ * ReentrantReadWriteLock to illustrate how they work.
  */
-class SimpleAtomicLong
-{
+class SimpleAtomicLong {
     /**
      * The value that's manipulated atomically via the methods.
      */
@@ -26,8 +24,7 @@ class SimpleAtomicLong
     /**
      * Creates a new SimpleAtomicLong with the given initial value.
      */
-    public SimpleAtomicLong(long initialValue)
-    {
+    public SimpleAtomicLong(long initialValue) {
         mValue = initialValue;
     }
 

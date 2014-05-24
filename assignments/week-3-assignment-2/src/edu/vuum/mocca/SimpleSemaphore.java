@@ -6,19 +6,17 @@ import java.util.concurrent.locks.Condition;
 
 /**
  * @class SimpleSemaphore
- *
  * @brief This class provides a simple counting semaphore
- *        implementation using Java a ReentrantLock and a
- *        ConditionObject.  It must implement both "Fair" and
- *        "NonFair" semaphore semantics, just liked Java Semaphores. 
+ * implementation using Java a ReentrantLock and a
+ * ConditionObject.  It must implement both "Fair" and
+ * "NonFair" semaphore semantics, just liked Java Semaphores.
  */
 public class SimpleSemaphore {
     /**
-     * Constructor initialize the data members.  
+     * Constructor initialize the data members.
      */
-    public SimpleSemaphore (int permits,
-                            boolean fair)
-    { 
+    public SimpleSemaphore(int permits,
+                           boolean fair) {
         // TODO - you fill in here
     }
 
@@ -44,15 +42,15 @@ public class SimpleSemaphore {
     void release() {
         // TODO - you fill in here
     }
-    
+
     /**
      * Return the number of permits available.
      */
-    public int availablePermits(){
-    	// TODO - you fill in here
-    	return 0; // You will change this value. 
+    public int availablePermits() {
+        // TODO - you fill in here
+        return 0; // You will change this value.
     }
-    
+
     /**
      * Define a ReentrantLock to protect the critical section.
      */
