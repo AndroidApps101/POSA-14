@@ -1,7 +1,6 @@
 package edu.vuum.mocca;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.concurrent.locks.Lock;
 
 /**
  * @class SimpleAtomicLong
@@ -32,7 +31,7 @@ class SimpleAtomicLong {
 
     /**
      * @brief Gets the current value.
-     * @returns The current value
+     * @return The current value
      */
     public long get() {
         long value;
@@ -52,7 +51,7 @@ class SimpleAtomicLong {
 
     /**
      * @brief Atomically decrements by one the current value
-     * @returns the updated value
+     * @return the updated value
      */
     public long decrementAndGet() {
         long value = 0;
@@ -72,7 +71,7 @@ class SimpleAtomicLong {
 
     /**
      * @brief Atomically increments by one the current value
-     * @returns the previous value
+     * @return the previous value
      */
     public long getAndIncrement() {
         long value = 0;
@@ -93,7 +92,7 @@ class SimpleAtomicLong {
 
     /**
      * @brief Atomically decrements by one the current value
-     * @returns the previous value
+     * @return the previous value
      */
     public long getAndDecrement() {
         long value = 0;
@@ -114,7 +113,7 @@ class SimpleAtomicLong {
 
     /**
      * @brief Atomically increments by one the current value
-     * @returns the updated value
+     * @return the updated value
      */
     public long incrementAndGet() {
         long value = 0;
