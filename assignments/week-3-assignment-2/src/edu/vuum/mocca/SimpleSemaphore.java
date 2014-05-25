@@ -12,8 +12,29 @@ import java.util.concurrent.locks.Condition;
  * "NonFair" semaphore semantics, just liked Java Semaphores.
  */
 public class SimpleSemaphore {
+
     /**
-     * Constructor initialize the data members.
+     * Define a ReentrantLock to protect the critical section.
+     */
+    // TODO - you fill in here
+    private Lock lock;
+
+    /**
+     * Define a ConditionObject to wait while the number of
+     * permits is 0.
+     */
+    // TODO - you fill in here
+    private Condition cond;
+
+    /**
+     * Define a count of the number of available permits.
+     */
+    // TODO - you fill in here.  Make sure that this data member will
+    // ensure its values aren't cached by multiple Threads..
+    private int permits;
+
+    /**
+     * Constructor initialize the data members.  
      */
     public SimpleSemaphore(int permits,
                            boolean fair) {
@@ -70,25 +91,5 @@ public class SimpleSemaphore {
         // TODO - you fill in here
         return permits; // You will change this value.
     }
-
-    /**
-     * Define a ReentrantLock to protect the critical section.
-     */
-    // TODO - you fill in here
-    private Lock lock;
-
-    /**
-     * Define a ConditionObject to wait while the number of
-     * permits is 0.
-     */
-    // TODO - you fill in here
-    private Condition cond;
-
-    /**
-     * Define a count of the number of available permits.
-     */
-    // TODO - you fill in here
-    private int permits = 0;
-
 }
 
